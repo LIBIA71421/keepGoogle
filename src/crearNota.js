@@ -25,3 +25,17 @@ function guardarNota(e){
     
     e.preventDefault();
 }
+
+function mostraNotas(){
+    //mostramos en pantalla las notas desde el locaStorage
+    let notas = JSON.parse(localStorage.getItem('notas'));
+    let verNotas = document.getElementById('resultado-divNota');
+
+    verNotas.innerHTML = '';    //limpiamos html
+
+    for(let i = 0; i < notas.length; i++){
+        
+    }
+}
+
+mostraNotas();
