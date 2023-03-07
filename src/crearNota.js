@@ -18,15 +18,15 @@ function guardarNota(e){
         localStorage.setItem('notas', JSON.stringify(notas));
     }else{ //recuperar notas y actualizarlas
         let notas = JSON.parse(localStorage.getItem('notas'));
-        notas.push(notas);
+        notas.push(Nota);
         localStorage.setItem('notas', JSON.stringify(notas));
     }
 
-    
+    mostrarNotas();
     e.preventDefault();
 }
 
-function mostraNotas(){
+function mostrarNotas(){
     //mostramos en pantalla las notas desde el locaStorage
     let notas = JSON.parse(localStorage.getItem('notas'));
     let verNotas = document.getElementById('resultado-divNota');
@@ -34,8 +34,18 @@ function mostraNotas(){
     verNotas.innerHTML = '';    //limpiamos html
 
     for(let i = 0; i < notas.length; i++){
-        
+        //recorrer todas las notas para mostrarlas
+        let titulo = notas[i].titulo;
+        let descripcion = notas[i].descripcion;
+
+        verNotas.innerHTML += `<div>
+            <h2>Notas: </h2>
+            <p>${titulo} - ${descripcion}</p>
+            <a>
+                Eliminar
+            </a>
+        </div>`
     }
 }
 
-mostraNotas();
+mostrarNotas();
