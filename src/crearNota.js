@@ -12,6 +12,7 @@ function guardarNota(e){
     };
 
     //usa el storage para almacenar las notas cuando no hay ninguna
+    // push - ingresar dato al arreglo
     if(localStorage.getItem('notas') == null){
         let notas = [];
         notas.push(Nota);
@@ -24,6 +25,18 @@ function guardarNota(e){
 
     mostrarNotas();
     e.preventDefault();
+}
+
+function eliminarNota(titulo){
+    let notas = JSON.parse(localStorage.getItem('notas'));
+    //titulos notas almacenadas splice-quitar
+    for(let i=0; i<notas.length; i++){
+        if(notas[i].titulo == titulo){
+            notas.splice(i,1);
+        }
+    }
+    localStorage.setItem('notas', JSON.stringify(notas));
+    mostrarNotas();
 }
 
 function mostrarNotas(){
@@ -41,11 +54,13 @@ function mostrarNotas(){
         verNotas.innerHTML += `<div>
             <h2>Notas: </h2>
             <p>${titulo} - ${descripcion}</p>
-            <a>
+            <button onclick="eliminarNota('${titulo}')">
                 Eliminar
-            </a>
+            </button >
         </div>`
     }
 }
+
+
 
 mostrarNotas();
