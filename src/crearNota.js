@@ -16,7 +16,12 @@ function guardarNota(e){
         let notas = [];
         notas.push(Nota);
         localStorage.setItem('notas', JSON.stringify(notas));
+    }else{ //recuperar notas y actualizarlas
+        let notas = JSON.parse(localStorage.getItem('notas'));
+        notas.push(notas);
+        localStorage.setItem('notas', JSON.stringify(notas));
     }
+
     
     e.preventDefault();
 }
