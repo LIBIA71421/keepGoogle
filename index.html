@@ -1,23 +1,47 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <titulo>Javsascript Keep Google</titulo>
+    
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  </head>
+
   <body>
     <h1>KEEP</h1>
     <h2>Nota:</h2>
-    <form id="crear-nota-form">
-      <div>
-        <label for="titulo">Ingresa el Titulo:</label>
-        <input type="text" id="titulo">
-      </div>
-      <div>
-        <label for="descripcion">Ingresa la Descripcion</label>
-        <input type="text" id="descripcion">
-      </div>
-      <div>
-        <input type="submit" value="CrearNota" id="crear-button">
-      </div>
 
-    </form>
-    <div id="resultado-divNota"></div>
+    <div id="Busqueda-por-titulo">
+      <label for="buscador">Buscar Nota:</label>
+      <input type="text" id="buscador" placeholder="Buscar...">
 
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-md-4">
+
+          <div class="card">
+            <div class="card-body">
+              
+              <form id="formNotas">
+                <div class="form-group">
+                  <input type="text" id="titulo" placeholder="Add A Todo" class="form-control">
+                </div>
+                <div class="form-group">
+                  <textarea id="descripcion" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div id="notas"></div>
+        </div>
+      </div>
+    </div>
+ 
     <script type="module" src="./src/crearNota.js"></script>
+    <script type="module" src="./src/busqueda.js"></script>
   </body>
 </html>
